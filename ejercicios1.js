@@ -3,3 +3,6 @@ console.log(Saludo);
 
 const descripcion = "Este es un ejercicio de JavaScript para practicar la sintaxis básica.";
 console.log(descripcion);
+
+alert("¡Bienvenido al ejercicio de JavaScript!")
+

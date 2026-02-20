@@ -3,92 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/Juego de la pelota.css">
+    <script src="Js/Juego de la pelota.js" defer></script>
+    
     <title>Juego de la Pelota</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #c4e9fb;
-            margin: 0;
-            padding: 20px;
-            transition: background-color 0.5s ease; /* Suave cambio de color */
-        }
-        
-        .Titulo {
-            margin-bottom: 20px;
-            color: #333;
-            text-align: center;
-        } 
 
-        
-        .Contenedor-juego {
-            text-align: center;
-            margin: 40px 0;
-        }
-        
-        input[type="number"] {
-            padding: 10px;
-            font-size: 16px;
-            border: 2px solid #333;
-            border-radius: 5px;
-            width: 150px;
-        }
-        
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-        
-        button:hover {
-            background: #45a049;
-        }
-        
-        #cuadro {
-            width: 400px;
-            height: 300px;
-            border: 3px solid #333;
-            margin: 30px auto;
-            position: relative;
-            background: white;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        #pelota {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: none;
-            animation: saltar 1s infinite;
-        }
-        
-        @keyframes saltar {
-            0%, 100% {
-                bottom: 10px;
-                transform: translateX(-50%) scale(1);
-            }
-            50% {
-                bottom: 200px;
-                transform: translateX(-50%) scale(1.1);
-            }
-        }
-        
-        #contador {
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-            margin-top: 10px;
-        }
-    </style>
+   
 </head>
 <body>
 
@@ -108,65 +28,6 @@
         </div>
     </div>
 
-    <script>
-        const inputSaltos = document.getElementById('cantidad-saltos');
-        const btnIniciar = document.getElementById('iniciar-juego');
-        const pelota = document.getElementById('pelota');
-        const contador = document.getElementById('contador');
-        const body = document.body;
-        
-        // Colores que cambiarán cada salto
-        const colores = [
-            '#c4e9fb', // Azul claro (inicial)
-            '#a8e6cf', // Verde menta
-            '#ffafbd', // Rosa claro
-            '#fdcb6e', // Amarillo
-            '#ffecd2', // Naranja claro
-            '#b8e6b8', // Verde claro
-            '#d1c4e9', // Lila
-            '#c4e9fb'  // Vuelve al azul
-        ];
-        
-        let saltoActual = 0;
-        let saltosTotales = 0;
-        let intervalo;
-        
-        btnIniciar.addEventListener('click', function() {
-            saltosTotales = parseInt(inputSaltos.value) || 5;
-            saltoActual = 0;
-            
-            if (saltosTotales > 0 && saltosTotales <= 10) {
-                // Resetear color inicial
-                body.style.backgroundColor = colores[0];
-                pelota.style.display = 'block';
-                pelota.style.background = '#ff0000'; // Roja inicial
-                
-                contador.textContent = `Salto ${saltoActual + 1} de ${saltosTotales}`;
-                
-                // Iniciar saltos con cambio de color
-                intervalo = setInterval(() => {
-                    saltoActual++;
-                    
-                    // Cambiar color de fondo
-                    body.style.backgroundColor = colores[saltoActual % colores.length];
-                    
-                    // Cambiar color de pelota
-                    if (saltoActual % 2 === 0) {
-                        pelota.style.background = '#ff0000'; // Rojo
-                    } else {
-                        pelota.style.background = '#00ff00'; // Verde
-                    }
-                    
-                    contador.textContent = `Salto ${saltoActual} de ${saltosTotales}`;
-                    
-                    if (saltoActual >= saltosTotales) {
-                        clearInterval(intervalo);
-                        contador.textContent = `¡🎉 ${saltosTotales} saltos completados!`;
-                        pelota.style.display = 'none';
-                    }
-                }, 1000); // Cada segundo cambia
-            }
-        });
-    </script>
+   
 </body>
 </html>

@@ -1,0 +1,84 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c4e9fb;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.5s ease; /* Suave cambio de color */
+        }
+        
+        .Titulo {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        } 
+
+        
+        .Contenedor-juego {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            width: 150px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        button:hover {
+            background: #45a049;
+        }
+        
+        #cuadro {
+            width: 400px;
+            height: 300px;
+            border: 3px solid #333;
+            margin: 30px auto;
+            position: relative;
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        #pelota {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            animation: saltar 1s infinite;
+        }
+        
+        @keyframes saltar {
+            0%, 100% {
+                bottom: 10px;
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                bottom: 200px;
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+        
+        #contador {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
